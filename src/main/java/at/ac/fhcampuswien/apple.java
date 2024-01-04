@@ -30,7 +30,7 @@ public class apple {
         return x;
     }
     public int getY(){
-        int y = 5 + (int)(Math.random() * ((23 - 5) + 1));
+        int y = 5 + (int)(Math.random() * ((22 - 5) + 1));
         return y;
     }
     public void draw(Graphics2D g2){

@@ -1,5 +1,6 @@
 package at.ac.fhcampuswien;
 
+import Map.TileManager;
 import Snake.*;
 
 import javax.imageio.ImageIO;
@@ -34,6 +35,7 @@ public class GamePanel extends JPanel implements Runnable{
     Tail t = new Tail(this,k);
     List<Snake> w = new ArrayList<>();
     List<apple> a = new ArrayList<>();
+    TileManager TM = new TileManager(this);
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -168,6 +170,7 @@ public class GamePanel extends JPanel implements Runnable{
 
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
+        TM.draw(g2);
         draw(g2);
         for (Snake s : w){
             s.draw(g2);
@@ -188,3 +191,6 @@ public class GamePanel extends JPanel implements Runnable{
     }
 
 }
+//Start und Endseite
+//Pausescreen
+//
