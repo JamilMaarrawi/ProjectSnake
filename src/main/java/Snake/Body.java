@@ -13,10 +13,12 @@ public class Body extends Snake{
     public BufferedImage BodyUp, BodyDown, BodyLeft, BodyRight;
     public BufferedImage DownLeft_RightUp, DownRight_LeftUp, UpLeft_RightDown, UpRight_LeftDown;
 
-    public Body(GamePanel gp, KeyBoard k) {
+    public Body(GamePanel gp, KeyBoard k,int x,int y) {
         super(gp,k);
-        x = (gp.screenWidth/2);
-        y = (gp.screenHeight/2) - (2*gp.TileSize);
+        //x = (gp.screenWidth/2);
+        //y = (gp.screenHeight/2) - (2*gp.TileSize);
+        this.x = x;
+        this.y = y;
         getImage();
     }
 

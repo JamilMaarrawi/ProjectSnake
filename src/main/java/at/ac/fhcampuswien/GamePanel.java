@@ -24,15 +24,16 @@ public class GamePanel extends JPanel implements Runnable{
     public final int screenHeight = TileSize * maxScreenRow;
     public int Score = 0;
     public int Coins = 0;
+    public int appleCount = 0;
 
     int FPS = 5;
     KeyBoard k = new KeyBoard();
     Thread gameThread;
     Head h = new Head(this,k);
-    Body b = new Body(this,k);
-    Body b2 = new Body(this,k);
+    Body b = new Body(this,k,screenWidth/2,screenHeight/2 - 2 * TileSize);
     Tail t = new Tail(this,k);
     List<Snake> w = new ArrayList<>();
+    List<apple> a = new ArrayList<>();
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -78,6 +79,15 @@ public class GamePanel extends JPanel implements Runnable{
     }
 
     public void update() {
+        if(a.size() < 3){
+            a.add(new apple(this));
+        }
+        for (int i = 0; i < a.size();i++){
+            if(a.get(i).x == h.x && a.get(i).y == h.y){
+                a.remove(a.get(i));
+                w.add(w.size()-2, new Body(this,k,w.get(w.size()-2).x,w.get(w.size()-2).y));
+            }
+        }
         int[] ox = new int[w.size()];
         int[] oy = new int[w.size()];
 
@@ -153,7 +163,6 @@ public class GamePanel extends JPanel implements Runnable{
                     break;
             }
         }
-
     }
     public void paintComponent(Graphics g) {
 
@@ -162,6 +171,9 @@ public class GamePanel extends JPanel implements Runnable{
         draw(g2);
         for (Snake s : w){
             s.draw(g2);
+        }
+        for (apple p : a){
+            p.draw(g2);
         }
         g2.dispose();
     }

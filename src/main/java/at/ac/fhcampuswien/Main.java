@@ -20,7 +20,6 @@ public class Main {
 
         gamePanel.w.add(gamePanel.h);
         gamePanel.w.add(gamePanel.b);
-        gamePanel.w.add(gamePanel.b2);
         gamePanel.w.add(gamePanel.t);
 
         gamePanel.startGameThread();
