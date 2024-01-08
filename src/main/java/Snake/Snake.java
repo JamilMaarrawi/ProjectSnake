@@ -22,4 +22,6 @@ public abstract class Snake {
 
     public abstract void draw(Graphics2D g2);
 
+    public abstract void Restart();
+
 }

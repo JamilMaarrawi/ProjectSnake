@@ -15,8 +15,6 @@ public class Body extends Snake{
 
     public Body(GamePanel gp, KeyBoard k,int x,int y) {
         super(gp,k);
-        //x = (gp.screenWidth/2);
-        //y = (gp.screenHeight/2) - (2*gp.TileSize);
         this.x = x;
         this.y = y;
         getImage();
@@ -52,4 +50,13 @@ public class Body extends Snake{
         }
         g2.drawImage(i,x,y,gp.TileSize,gp.TileSize,null);
     }
+    @Override
+    public void Restart() {
+        x=11*gp.TileSize;
+        y=12*gp.TileSize;
+        Direction="LEFT";
+        collisionOn=false;
+        gp.w.add(this);
+    }
+
 }

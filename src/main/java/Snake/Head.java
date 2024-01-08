@@ -15,8 +15,8 @@ public class Head extends Snake {
     public BufferedImage HeadUp, HeadDown, HeadLeft, HeadRight;
     public Head(GamePanel gp, KeyBoard k) {
         super(gp,k);
-        x = (gp.screenWidth/2) - gp.TileSize;
-        y = (gp.screenHeight/2) - (2*gp.TileSize);
+        x = 10 * gp.TileSize;
+        y = 12 * gp.TileSize;
         collisionOn = false;
         getImage();
     }
@@ -43,5 +43,13 @@ public class Head extends Snake {
         }
         g2.drawImage(i,x,y,gp.TileSize,gp.TileSize,null);
     }
-
+    @Override
+    public void Restart() {
+        x=10*gp.TileSize;
+        y=12*gp.TileSize;
+        Direction="LEFT";
+        gp.k.Direction="LEFT";
+        collisionOn=false;
+        gp.w.add(this);
+    }
 }

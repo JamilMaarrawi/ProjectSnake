@@ -14,8 +14,8 @@ public class Tail extends Snake{
 
     public Tail(GamePanel gp, KeyBoard k) {
         super(gp,k);
-        x = (gp.screenWidth/2) + (gp.TileSize);
-        y = (gp.screenHeight/2) - (2*gp.TileSize);
+        x = 12 * gp.TileSize;
+        y = 12 * gp.TileSize;
         getImage();
     }
 
@@ -40,5 +40,13 @@ public class Tail extends Snake{
             case "RIGHT", "UPRIGHT", "DOWNRIGHT" -> i = TailRight;
         }
         g2.drawImage(i,x,y,gp.TileSize,gp.TileSize,null);
+    }
+    @Override
+    public void Restart() {
+        x=12*gp.TileSize;
+        y=12*gp.TileSize;
+        Direction="LEFT";
+        collisionOn=false;
+        gp.w.add(this);
     }
 }
