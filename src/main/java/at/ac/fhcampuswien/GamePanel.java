@@ -270,7 +270,7 @@ public class GamePanel extends JPanel implements Runnable{
         g2.drawImage(i, 130, 120, 14*TileSize, 7*TileSize, null);
         try {i=ImageIO.read(getClass().getResourceAsStream("/Other/0Coins.png"));} catch (IOException e) {e.printStackTrace();}
         g2.drawImage(i, 17*TileSize, 10, 80, 40, null);
-        //g2.drawImage(Frame, 0, 0, screenWidth, screenHeight, null);
+        g2.drawImage(Frame, 0, 0, screenWidth, screenHeight, null);
         m1.setIcon(new  ImageIcon(getClass().getResource("/Other/map1.png")));
         m1.drawButton();
         if(TM.GotMap2)m2.setIcon(new  ImageIcon(getClass().getResource("/Other/map2.png")));
@@ -290,7 +290,7 @@ public class GamePanel extends JPanel implements Runnable{
         BufferedImage i=null;
         try {i=ImageIO.read(getClass().getResourceAsStream("/Other/0GameOver.png"));} catch (IOException e) {e.printStackTrace();}
         g2.drawImage(i, 60, 120, 18*TileSize, 9*TileSize, null);
-        //g2.drawImage(Frame, 0, 0, screenWidth, screenHeight, null);
+        g2.drawImage(Frame, 0, 0, screenWidth, screenHeight, null);
         restart.setBackground(Color.getHSBColor(43,9,90));
         restart.setForeground(Color.WHITE);
         restart.setIcon(new ImageIcon(getClass().getResource("/Other/RecGreen.png")));
@@ -312,7 +312,7 @@ public class GamePanel extends JPanel implements Runnable{
         BufferedImage i=null;
         try {i=ImageIO.read(getClass().getResourceAsStream("/Other/0Pause.png"));} catch (IOException e) {e.printStackTrace();}
         g2.drawImage(i, 60, 120, 18*TileSize, 9*TileSize, null);
-        //g2.drawImage(Frame, 0, 0, screenWidth, screenHeight, null);
+        g2.drawImage(Frame, 0, 0, screenWidth, screenHeight, null);
         resume.setBackground(Color.getHSBColor(43,9,90));
         resume.setForeground(Color.WHITE);
         resume.setIcon(new ImageIcon(getClass().getResource("/Other/RecGreen.png")));
@@ -334,7 +334,7 @@ public class GamePanel extends JPanel implements Runnable{
         BufferedImage i=null;
         try {i=ImageIO.read(getClass().getResourceAsStream("/Other/0Difficulty.png"));} catch (IOException e) {e.printStackTrace();}
         g2.drawImage(i, 70, 0, 18*TileSize, 13*TileSize, null);
-        //g2.drawImage(Frame, 0, 0, screenWidth, screenHeight, null);
+        g2.drawImage(Frame, 0, 0, screenWidth, screenHeight, null);
         easy.setBackground(Color.getHSBColor(43,9,90));
         easy.setForeground(Color.WHITE);
         easy.setIcon(new ImageIcon(getClass().getResource("/Other/Rec1.png")));
