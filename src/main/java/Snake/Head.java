@@ -13,6 +13,8 @@ import java.io.IOException;
 public class Head extends Snake {
 
     public BufferedImage HeadUp, HeadDown, HeadLeft, HeadRight;
+
+    //Constructor
     public Head(GamePanel gp, KeyBoard k) {
         super(gp,k);
         x = 10 * gp.TileSize;
@@ -20,7 +22,7 @@ public class Head extends Snake {
         collisionOn = false;
         getImage();
     }
-
+    //Gets Image for various directions
     public void getImage() {
         try {
             HeadUp = ImageIO.read(getClass().getResourceAsStream("/Snake/HeadUp.png"));
@@ -31,7 +33,7 @@ public class Head extends Snake {
             e.printStackTrace();
         }
     }
-
+    //Draws Image according to direction
     @Override
     public void draw(Graphics2D g2) {
         BufferedImage i = null;
@@ -43,6 +45,7 @@ public class Head extends Snake {
         }
         g2.drawImage(i,x,y,gp.TileSize,gp.TileSize,null);
     }
+    //When game is restarted, Head gets to original position and direction
     @Override
     public void Restart() {
         x=10*gp.TileSize;

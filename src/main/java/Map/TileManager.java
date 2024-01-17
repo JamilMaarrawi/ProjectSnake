@@ -15,6 +15,7 @@ public class TileManager {
     public int Map=1;
     public boolean GotMap2,GotMap3 = false;
 
+    //Constructor for class "TileManager"
     public TileManager(GamePanel gp) {
 
         this.gp = gp;
@@ -33,7 +34,7 @@ public class TileManager {
             }
         }
     }
-
+    //Gets image for Tiles
     public void getTileImage() {
         try {
             tile[0]=new Tile();
@@ -60,13 +61,14 @@ public class TileManager {
         }
     }
 
-
+    //Draws the Map on the Game-Panel
     public void draw(Graphics2D g2) {
         Background(g2);
         if(Map==1)Map1(g2);
         else if (Map==2)Map2(g2);
         else if (Map==3)Map3(g2);
     }
+    //Creates Background for Game-Panel
     public void Background(Graphics2D g2) {
         for (int row = 3; row < gp.maxScreenRow; row++) {
             if (row % 2 == 0) {
@@ -88,7 +90,7 @@ public class TileManager {
             }
         }
     }
-
+    //Creates Map 1
     public void Map1(Graphics2D g2){
         map = new int[gp.maxScreenRow][gp.maxScreenCol];
         for (int row = 3; row < gp.maxScreenRow; row++){
@@ -108,7 +110,7 @@ public class TileManager {
             }
         }
     }
-
+    //Creates Map 2
     public void Map2(Graphics2D g2){
         map = new int[gp.maxScreenRow][gp.maxScreenCol];
         map[ 3] = new int[]{3,3,4,4,4,3,3,3,3,4,3,3,3,3,4,4,4,3,3,3,4,4};
@@ -137,6 +139,7 @@ public class TileManager {
             }
         }
     }
+    //Creates Map 3
     public void Map3(Graphics2D g2){
         map = new int[gp.maxScreenRow][gp.maxScreenCol];
         map[ 3] = new int[]{3,4,4,4,3,3,3,3,3,3,3,3,3,4,4,3,3,3,3,3,3,3};

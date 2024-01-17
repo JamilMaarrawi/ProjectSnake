@@ -11,7 +11,7 @@ public class Main {
 
         JFrame window = new JFrame();
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.setResizable(false);
+        window.setResizable(true);
         window.setTitle("Snake");
         try {window.setIconImage(ImageIO.read(Main.class.getResourceAsStream("/Snake/HeadUp.png")));
         } catch (IOException e) {e.printStackTrace();}

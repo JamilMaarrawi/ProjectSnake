@@ -12,13 +12,14 @@ public class Tail extends Snake{
 
     public BufferedImage TailUp, TailDown, TailLeft, TailRight;
 
+    //Constructor
     public Tail(GamePanel gp, KeyBoard k) {
         super(gp,k);
         x = 12 * gp.TileSize;
         y = 12 * gp.TileSize;
         getImage();
     }
-
+    //Gets Image for various directions
     public void getImage() {
         try {
             TailUp = ImageIO.read(getClass().getResourceAsStream("/Snake/TailUp.png"));
@@ -29,7 +30,7 @@ public class Tail extends Snake{
             e.printStackTrace();
         }
     }
-
+    //Draws Image according to direction
     @Override
     public void draw(Graphics2D g2) {
         BufferedImage i = null;
@@ -41,6 +42,7 @@ public class Tail extends Snake{
         }
         g2.drawImage(i,x,y,gp.TileSize,gp.TileSize,null);
     }
+    //When game is restarted, Tail gets to original position and direction
     @Override
     public void Restart() {
         x=12*gp.TileSize;

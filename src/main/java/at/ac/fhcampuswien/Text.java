@@ -6,11 +6,13 @@ public class Text {
     GamePanel gp;
     Font arial40;
     Font F;
+    //Constructor for class "Text"
     public Text(GamePanel gp){
         this.gp = gp;
         arial40 = new Font("Arial",Font.BOLD,35);
         F = new Font("SansSerif",Font.BOLD,30);
     }
+    //Draws the Text on the screen
     public void draw(Graphics2D g2){
         g2.setFont(arial40);
         g2.setColor(new Color(70,140,70));

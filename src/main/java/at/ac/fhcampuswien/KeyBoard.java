@@ -8,6 +8,7 @@ public class KeyBoard implements KeyListener {
     GamePanel gp;
     public String Direction = "LEFT";
     public String Redo = null;
+    //Constructor for class "Keyboard"
     public KeyBoard(GamePanel gp){
         this.gp = gp;
     }
@@ -15,7 +16,7 @@ public class KeyBoard implements KeyListener {
     public void keyTyped(KeyEvent e) {
 
     }
-
+    //Performs Action when key is pressed
     @Override
     public void keyPressed(KeyEvent e) {
         int code = e.getKeyCode();

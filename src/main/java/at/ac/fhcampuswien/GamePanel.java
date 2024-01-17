@@ -45,7 +45,7 @@ public class GamePanel extends JPanel implements Runnable{
     BufferedImage Frame=null;
     BufferedImage Frame1=null;
 
-
+    //Constructor for class "GamePanel"
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.getHSBColor(43,9,90));
@@ -71,12 +71,12 @@ public class GamePanel extends JPanel implements Runnable{
         try {Frame=ImageIO.read(getClass().getResourceAsStream("/Other/0Frame.png"));} catch (IOException e) {e.printStackTrace();}
         try {Frame1=ImageIO.read(getClass().getResourceAsStream("/Other/0Frame1.png"));} catch (IOException e) {e.printStackTrace();}
     }
-
+    //Starts the Game
     public void startGameThread() {
         gameThread = new Thread(this);
         gameThread.start();
     }
-
+    //Creates a Game-Loop and calls "update" and "repaint" methods x times per second according to difficulty
     @Override
     public void run() {
         double Interval1 = 1000000000/FPS1;
@@ -100,7 +100,8 @@ public class GamePanel extends JPanel implements Runnable{
             }
         }
     }
-
+    //Updates the position of the snake and grows the snake if Apple is eaten
+    //+ Checks if Game-Over
     public void update() {
         if(a.size() < 3){
             a.add(new Apple(this));
@@ -213,6 +214,7 @@ public class GamePanel extends JPanel implements Runnable{
             playSE(2);
         }
     }
+    //Repaints whole GamePanel
     public void paintComponent(Graphics g) {
 
         super.paintComponent(g);
@@ -244,6 +246,7 @@ public class GamePanel extends JPanel implements Runnable{
             g2.dispose();
         }
     }
+    //Draws GameState 1 (Game-Screen)
     public void draw1(Graphics2D g2){
         BufferedImage i=null;
         try {i=ImageIO.read(getClass().getResourceAsStream("/Other/0Title.png"));} catch (IOException e) {e.printStackTrace();}
@@ -264,13 +267,14 @@ public class GamePanel extends JPanel implements Runnable{
         remove(resume);
         remove(GoHome);
     }
+    //Draws GameState 0 (Title-Screen)
     public void draw0(Graphics2D g2){
         BufferedImage i=null;
         try {i=ImageIO.read(getClass().getResourceAsStream("/Other/0Title.png"));} catch (IOException e) {e.printStackTrace();}
         g2.drawImage(i, 130, 120, 14*TileSize, 7*TileSize, null);
         try {i=ImageIO.read(getClass().getResourceAsStream("/Other/0Coins.png"));} catch (IOException e) {e.printStackTrace();}
         g2.drawImage(i, 17*TileSize, 10, 80, 40, null);
-        //g2.drawImage(Frame, 0, 0, screenWidth, screenHeight, null);
+        g2.drawImage(Frame, 0, 0, screenWidth, screenHeight, null);
         m1.setIcon(new  ImageIcon(getClass().getResource("/Other/map1.png")));
         m1.drawButton();
         if(TM.GotMap2)m2.setIcon(new  ImageIcon(getClass().getResource("/Other/map2.png")));
@@ -286,11 +290,12 @@ public class GamePanel extends JPanel implements Runnable{
         remove(resume);
         remove(GoHome);
     }
+    //Draws GameState 2 (GameOver-Screen)
     public void draw2(Graphics2D g2){
         BufferedImage i=null;
         try {i=ImageIO.read(getClass().getResourceAsStream("/Other/0GameOver.png"));} catch (IOException e) {e.printStackTrace();}
         g2.drawImage(i, 60, 120, 18*TileSize, 9*TileSize, null);
-        //g2.drawImage(Frame, 0, 0, screenWidth, screenHeight, null);
+        g2.drawImage(Frame, 0, 0, screenWidth, screenHeight, null);
         restart.setBackground(Color.getHSBColor(43,9,90));
         restart.setForeground(Color.WHITE);
         restart.setIcon(new ImageIcon(getClass().getResource("/Other/RecGreen.png")));
@@ -308,11 +313,12 @@ public class GamePanel extends JPanel implements Runnable{
         GoHome.setIconTextGap(-140);
         GoHome.drawButton();
     }
+    //Draws GameState 3 (Pause-Screen)
     public void draw3(Graphics2D g2){
         BufferedImage i=null;
         try {i=ImageIO.read(getClass().getResourceAsStream("/Other/0Pause.png"));} catch (IOException e) {e.printStackTrace();}
         g2.drawImage(i, 60, 120, 18*TileSize, 9*TileSize, null);
-        //g2.drawImage(Frame, 0, 0, screenWidth, screenHeight, null);
+        g2.drawImage(Frame, 0, 0, screenWidth, screenHeight, null);
         resume.setBackground(Color.getHSBColor(43,9,90));
         resume.setForeground(Color.WHITE);
         resume.setIcon(new ImageIcon(getClass().getResource("/Other/RecGreen.png")));
@@ -330,11 +336,12 @@ public class GamePanel extends JPanel implements Runnable{
         GoHome.setIconTextGap(-140);
         GoHome.drawButton();
     }
+    //Draws GameState 4 (Difficulty-Screen)
     public void draw4(Graphics2D g2){
         BufferedImage i=null;
         try {i=ImageIO.read(getClass().getResourceAsStream("/Other/0Difficulty.png"));} catch (IOException e) {e.printStackTrace();}
         g2.drawImage(i, 70, 0, 18*TileSize, 13*TileSize, null);
-        //g2.drawImage(Frame, 0, 0, screenWidth, screenHeight, null);
+        g2.drawImage(Frame, 0, 0, screenWidth, screenHeight, null);
         easy.setBackground(Color.getHSBColor(43,9,90));
         easy.setForeground(Color.WHITE);
         easy.setIcon(new ImageIcon(getClass().getResource("/Other/Rec1.png")));
@@ -366,11 +373,13 @@ public class GamePanel extends JPanel implements Runnable{
         remove(resume);
         remove(GoHome);
     }
+    //Plays background Music
     public void playMusic(int i){
         Music.setFile(i);
         Music.play();
         Music.loop();
     }
+    //Plays Sound-Effects
     public void playSE(int i){
         SE.setFile(i);
         SE.play();

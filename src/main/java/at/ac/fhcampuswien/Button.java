@@ -13,6 +13,7 @@ import java.awt.event.MouseListener;
 public class Button extends JButton implements MouseListener {
     GamePanel gp;
     int x,y,width,height;
+    //Constructor for class "Button"
     public Button(int x, int y, int width, int height,GamePanel gp){
         super();
         setVisible(false);
@@ -25,6 +26,7 @@ public class Button extends JButton implements MouseListener {
         addMouseListener(this);
         setFocusable(false);
     }
+    //Draws the Button
     public void drawButton(){
         setVisible(true);
         setEnabled(true);
@@ -32,6 +34,7 @@ public class Button extends JButton implements MouseListener {
         repaint();
         gp.add(this);
     }
+    //Performs the Action when Button is clicked
     @Override
     public void mouseClicked(MouseEvent e) {
         if (e.getSource() == gp.m1) {

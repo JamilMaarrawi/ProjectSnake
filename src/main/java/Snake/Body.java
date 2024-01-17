@@ -13,13 +13,14 @@ public class Body extends Snake{
     public BufferedImage BodyUp, BodyDown, BodyLeft, BodyRight;
     public BufferedImage DownLeft_RightUp, DownRight_LeftUp, UpLeft_RightDown, UpRight_LeftDown;
 
+    //Constructor
     public Body(GamePanel gp, KeyBoard k,int x,int y) {
         super(gp,k);
         this.x = x;
         this.y = y;
         getImage();
     }
-
+    //Gets Image for various directions
     public void getImage() {
         try {
             BodyUp = ImageIO.read(getClass().getResourceAsStream("/Snake/BodyUp.png"));
@@ -34,7 +35,7 @@ public class Body extends Snake{
             e.printStackTrace();
         }
     }
-
+    //Draws Image according to direction
     @Override
     public void draw(Graphics2D g2) {
         BufferedImage i = null;
@@ -50,6 +51,7 @@ public class Body extends Snake{
         }
         g2.drawImage(i,x,y,gp.TileSize,gp.TileSize,null);
     }
+    //When game is restarted, Body gets to original position and direction
     @Override
     public void Restart() {
         x=11*gp.TileSize;
